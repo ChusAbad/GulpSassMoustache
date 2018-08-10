@@ -6,7 +6,7 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
-var cssPath = 'assets/css';
+var cssPath = 'app/assets/css';
 
 /*
     TASKS
@@ -20,16 +20,16 @@ gulp.task('compile-sass',function(){
             )
          .pipe(
                 sass({
-                    includePaths:['assets/css']
+                    includePaths:[cssPath]
                     })
-         )
+         );
 });
 
 
 gulp.task('serve',['compile-sass'], function(){
     browserSync.init([cssPath,"*.html"],{
         server:{
-            baseDir:''
+            baseDir:'app'
         }
     });
 });
